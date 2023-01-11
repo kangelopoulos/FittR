@@ -12,22 +12,6 @@ const App = () => {
   // Hooks for user session
   const [hasSession, setHasSession] = useState(false);
   const [user, setUser] = useState({});
-  console.log(user);
-  /**
-   * Authorization - once the app loads, it checks for a valid jwt
-   */
-  useEffect(() => {
-    const checkSession = async () => {
-      const response = await axios.get("https://api-fittr.onrender.com/auth/cookie", {
-        withCredentials: true,
-      });
-      if (response.status === 200 && response.data) {
-        setUser(response.data);
-        setHasSession(true);
-      }
-    };
-    checkSession();
-  }, []);
 
   return (
     <div id="main">
