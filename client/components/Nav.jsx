@@ -6,7 +6,7 @@ const Nav = ({ hasSession, setHasSession, setUser }) => {
   const handleLogout = async () => {
     setUser({});
     setHasSession(false);
-    const response = axios.delete("/auth/cookie", {
+    const response = axios.delete("https://api-fittr.onrender.com/auth/cookie", {
       withCredentials: true,
     });
   };
