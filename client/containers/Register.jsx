@@ -30,13 +30,13 @@ const Register = ({ setUser }) => {
           confirmPassword: confirmPassword,
           displayName: displayName,
         });
-        if(response.status === 200){
+        if (response.status === 200) {
           setUser(response.data);
           navigate("/home");
         }
         setMsg("");
       } catch (err) {
-        setMsg('There was an error on sign up, please try again.')
+        setMsg("There was an error on sign up, please try again.");
       }
     }
   };

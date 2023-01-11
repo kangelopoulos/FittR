@@ -20,7 +20,7 @@ const Home = ({ user }) => {
         console.log(response.data);
         setWeights(response.data);
       } catch (err) {
-        setMsg('There was an error loading your data, please try again.')
+        setMsg("There was an error loading your data, please try again.");
       }
     };
     getDate();
@@ -71,7 +71,7 @@ const Home = ({ user }) => {
       const response = await axios.delete("/weight", {
         data: { weight_id: weight_id },
       });
-      console.log([weights.filter(weight => weight._id == weight_id)])
+      console.log([weights.filter((weight) => weight._id == weight_id)]);
       setWeights([...weights.filter((weight) => weight._id != weight_id)]);
       setMsg("");
     } catch (err) {

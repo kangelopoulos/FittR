@@ -40,9 +40,7 @@ const Weight = ({ weight, i, deleteWeight, updateWeight }) => {
             </button>
           </td>
           <td>
-            <button id={weight._id} 
-              onClick={deleteWeight} 
-              className="warning">
+            <button id={weight._id} onClick={deleteWeight} className="warning">
               Delete
             </button>
           </td>

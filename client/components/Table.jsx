@@ -14,23 +14,30 @@ const Table = ({ weights, deleteWeight, updateWeight }) => {
           </tr>
         </thead>
         <tbody>
-          { weights.length ? weights.map((weight, i) => {
-            return (
-              <Weight
-                weight={weight}
-                i={i}
-                key={`id_${weight._id}`}
-                deleteWeight={deleteWeight}
-                updateWeight={updateWeight}
-              />
-            );
-          }) : <></>}
+          {weights.length ? (
+            weights.map((weight, i) => {
+              return (
+                <Weight
+                  weight={weight}
+                  i={i}
+                  key={`id_${weight._id}`}
+                  deleteWeight={deleteWeight}
+                  updateWeight={updateWeight}
+                />
+              );
+            })
+          ) : (
+            <></>
+          )}
         </tbody>
         <tfoot>
           <tr>
             <td>Total Weight Change:</td>
             <td>
-              { weights.length ? weights[weights.length - 1].weight - weights[0].weight : 'N/A'} lbs
+              {weights.length
+                ? weights[weights.length - 1].weight - weights[0].weight
+                : "N/A"}{" "}
+              lbs
             </td>
           </tr>
         </tfoot>
