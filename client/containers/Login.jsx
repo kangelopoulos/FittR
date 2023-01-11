@@ -20,6 +20,7 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
       const response = await axios.get("https://api-fittr.onrender.com/auth/cookie", {
         withCredentials: true,
       });
+      console.log(response);
       if (response.status === 200 && response.data) {
         setUser(response.data);
         setHasSession(true);
