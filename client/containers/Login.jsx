@@ -17,6 +17,7 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
    useEffect(() => {
     console.log('here');
     const checkSession = async () => {
+      console.log('in function');
       const response = await axios.get("https://api-fittr.onrender.com/auth/cookie", {
         withCredentials: true,
       });
