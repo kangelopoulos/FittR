@@ -17,16 +17,16 @@ const App = () => {
    * Authorization - once the app loads, it checks for a valid jwt
    */
   useEffect(() => {
-    const checkSession = async () => {
-      const response = await axios.get("/auth/cookie", {
-        withCredentials: true,
-      });
-      if (response.status === 200 && response.data) {
-        setUser(response.data);
-        setHasSession(true);
-      }
-    };
-    checkSession();
+    // const checkSession = async () => {
+    //   const response = await axios.get("/auth/cookie", {
+    //     withCredentials: true,
+    //   });
+    //   if (response.status === 200 && response.data) {
+    //     setUser(response.data);
+    //     setHasSession(true);
+    //   }
+    // };
+    // checkSession();
   }, []);
 
   return (
