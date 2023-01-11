@@ -15,6 +15,7 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
    * Authorization - once the app loads, it checks for a valid jwt
    */
    useEffect(() => {
+    console.log('here');
     const checkSession = async () => {
       const response = await axios.get("https://api-fittr.onrender.com/auth/cookie", {
         withCredentials: true,
