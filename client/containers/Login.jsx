@@ -20,7 +20,7 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
       setMsg("Email and password required.");
     } else {
       try {
-        const response = await axios.post("/auth/login", {
+        const response = await axios.post("https://api-fittr.onrender.com/auth/login", {
           email: email,
           password: password,
         });

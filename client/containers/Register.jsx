@@ -24,7 +24,7 @@ const Register = ({ setUser }) => {
       setMsg("Passwords must match");
     } else {
       try {
-        const response = await axios.post("/auth/signup", {
+        const response = await axios.post("https://api-fittr.onrender.com/auth/signup", {
           email: email,
           password: password,
           confirmPassword: confirmPassword,
