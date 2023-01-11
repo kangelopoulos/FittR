@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Message from "../components/Message.jsx";
-import { useState } from "react";
 import axios from "axios";
 import { Navigate } from "react-router";
 
@@ -11,7 +10,7 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
 
   // Hooks for error messaging
   const [msg, setMsg] = useState("");
-  
+
   /**
    * Authorization - once the app loads, it checks for a valid jwt
    */
