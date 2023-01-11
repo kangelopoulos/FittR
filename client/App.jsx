@@ -18,16 +18,16 @@ const App = () => {
    */
   useEffect(() => {
     const checkSession = async () => {
-      const response = await axios.get('/auth/cookie', {
-        withCredentials: true
+      const response = await axios.get("/auth/cookie", {
+        withCredentials: true,
       });
-      if(response.status === 200 && response.data){
+      if (response.status === 200 && response.data) {
         setUser(response.data);
         setHasSession(true);
       }
-    }
+    };
     checkSession();
-  }, [])
+  }, []);
 
   return (
     <div id="main">
