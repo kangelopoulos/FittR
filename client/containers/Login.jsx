@@ -11,6 +11,22 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
 
   // Hooks for error messaging
   const [msg, setMsg] = useState("");
+  
+  /**
+   * Authorization - once the app loads, it checks for a valid jwt
+   */
+   useEffect(() => {
+    const checkSession = async () => {
+      const response = await axios.get("https://api-fittr.onrender.com/auth/cookie", {
+        withCredentials: true,
+      });
+      if (response.status === 200 && response.data) {
+        setUser(response.data);
+        setHasSession(true);
+      }
+    };
+    checkSession();
+  }, []);
 
   // Handle login attempt
   const handleLogin = async (e) => {
