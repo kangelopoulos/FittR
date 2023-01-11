@@ -13,9 +13,6 @@ const PORT = 3000;
       .status(200)
       .sendFile(path.join(__dirname, "../build/index.html"));
   });
-  app.get("/*", (req, res) => {
-    return res.status(200).redirect("/");
-  });
 }
 app.use((req, res) => res.sendStatus(404));
 
