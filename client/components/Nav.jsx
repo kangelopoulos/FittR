@@ -1,14 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Nav = ({ hasSession, setHasSession, setUser }) => {
+  const navigate = useNavigate();
+
   const handleLogout = async () => {
     setUser({});
     setHasSession(false);
     const response = await axios.delete("https://api-fittr.onrender.com/auth/cookie", {
       withCredentials: true,
     });
+    console.log(response);
+    navigate('/');
   };
 
   return (
