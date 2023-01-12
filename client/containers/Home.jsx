@@ -10,6 +10,8 @@ const Home = ({ user }) => {
   const [date, setDate] = useState({});
   const [weight, setWeight] = useState(150);
   const [msg, setMsg] = useState("");
+  const today = new Date();
+
 
   /**
    * Grabs all user_weights from the api
@@ -157,6 +159,7 @@ const Home = ({ user }) => {
           name="date"
           id="date"
           type="date"
+          max={today}
           onChange={(e) => setDate(new Date(e.target.value))}
         />
         <label htmlFor="weight">Weight:</label>
