@@ -14,7 +14,7 @@ const Home = ({ user }) => {
   useEffect(() => {
     const getDate = async () => {
       try {
-        const response = await axios.get("https://api-fittr.onrender.com/weight", {
+        const response = await axios.get("https://ksatest.dev/weight", {
           params: { user_id: user.id },
         });
         console.log(response.data);
@@ -36,7 +36,7 @@ const Home = ({ user }) => {
       setMsg("You must enter a date to add a weight.");
     } else {
       try {
-        const response = await axios.post("https://api-fittr.onrender.com/weight", {
+        const response = await axios.post("https://ksatest.dev/weight", {
           weight: weight,
           date: date,
           user_id: user.id,
@@ -68,7 +68,7 @@ const Home = ({ user }) => {
     const weight_id = Number(e.target.id);
     console.log(weight_id);
     try {
-      const response = await axios.delete("https://api-fittr.onrender.com/weight", {
+      const response = await axios.delete("https://ksatest.dev/weight", {
         data: { weight_id: weight_id },
       });
       console.log([weights.filter((weight) => weight._id == weight_id)]);
@@ -95,7 +95,7 @@ const Home = ({ user }) => {
 
   const updateWeight = async (e, weight) => {
     try {
-      const response = await axios.patch("https://api-fittr.onrender.com/weight", {
+      const response = await axios.patch("https://ksatest.dev/weight", {
         ...weight,
       });
 
