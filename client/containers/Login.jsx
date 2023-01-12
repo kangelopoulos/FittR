@@ -18,7 +18,7 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
     console.log('here');
     const checkSession = async () => {
       console.log('in function');
-      const response = await axios.post("https://api-fittr.onrender.com/auth/cookie", {}, {
+      const response = await axios.post("https://ksatest.dev/auth/cookie", {}, {
         withCredentials: true,
       });
       console.log(response);
@@ -38,7 +38,7 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
       setMsg("Email and password required.");
     } else {
       try {
-        const response = await axios.post("https://api-fittr.onrender.com/auth/login", {
+        const response = await axios.post("https://ksatest.dev/auth/login", {
           email: email,
           password: password,
         });
