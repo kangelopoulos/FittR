@@ -82,7 +82,7 @@ const Home = ({ user }) => {
   const deleteAllWeights = async () => {
     const user_id = user.id;
     try {
-      const response = await axios.delete("/weight/all", {
+      const response = await axios.delete("https://api-fittr.onrender.com/weight/all", {
         data: { user_id: user_id },
       });
       setWeights([]);
