@@ -15,21 +15,26 @@ const Register = ({ setUser }) => {
 
   const navigate = useNavigate();
 
+  /**
+   * Attempts to register a user
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password || !confirmPassword || !displayName) {
-      console.log("here");
       setMsg("Please fill out all fields.");
     } else if (confirmPassword !== password) {
       setMsg("Passwords must match");
     } else {
       try {
-        const response = await axios.post("https://api-fittr.onrender.com/auth/signup", {
-          email: email,
-          password: password,
-          confirmPassword: confirmPassword,
-          displayName: displayName,
-        });
+        const response = await axios.post(
+          "https://api-fittr.onrender.com/auth/signup",
+          {
+            email: email,
+            password: password,
+            confirmPassword: confirmPassword,
+            displayName: displayName,
+          }
+        );
         if (response.status === 200) {
           setUser(response.data);
           navigate("/home");

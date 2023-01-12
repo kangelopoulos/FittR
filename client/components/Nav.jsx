@@ -5,14 +5,19 @@ import axios from "axios";
 const Nav = ({ hasSession, setHasSession, setUser }) => {
   const navigate = useNavigate();
 
+  /**
+   * Requests that the server remove any existing jwt, reroutes to login
+   */
   const handleLogout = async () => {
     setUser({});
     setHasSession(false);
-    const response = await axios.delete("https://api-fittr.onrender.com/auth/cookie", {
-      withCredentials: true,
-    });
-    console.log(response);
-    navigate('/');
+    const response = await axios.delete(
+      "https://api-fittr.onrender.com/auth/cookie",
+      {
+        withCredentials: true,
+      }
+    );
+    navigate("/");
   };
 
   return (

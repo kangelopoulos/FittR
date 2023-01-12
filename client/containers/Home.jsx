@@ -11,13 +11,18 @@ const Home = ({ user }) => {
   const [weight, setWeight] = useState(150);
   const [msg, setMsg] = useState("");
 
+  /**
+   * Grabs all user_weights from the api
+   */
   useEffect(() => {
     const getDate = async () => {
       try {
-        const response = await axios.get("https://api-fittr.onrender.com/weight", {
-          params: { user_id: user.id },
-        });
-        console.log(response.data);
+        const response = await axios.get(
+          "https://api-fittr.onrender.com/weight",
+          {
+            params: { user_id: user.id },
+          }
+        );
         setWeights(response.data);
       } catch (err) {
         setMsg("There was an error loading your data, please try again.");
@@ -30,17 +35,19 @@ const Home = ({ user }) => {
    * Adds a weight to the database and alters the
    */
   const addWeight = async (e) => {
-    console.log(date, weight);
     e.preventDefault();
     if (!(date instanceof Date) || weight == 0) {
       setMsg("You must enter a date to add a weight.");
     } else {
       try {
-        const response = await axios.post("https://api-fittr.onrender.com/weight", {
-          weight: weight,
-          date: date,
-          user_id: user.id,
-        });
+        const response = await axios.post(
+          "https://api-fittr.onrender.com/weight",
+          {
+            weight: weight,
+            date: date,
+            user_id: user.id,
+          }
+        );
 
         // This is a short cut with terrible time complexity - in another iteration I would edit this
         setWeights(
@@ -59,19 +66,23 @@ const Home = ({ user }) => {
         setWeight(150);
         setMsg("");
       } catch (err) {
-        console.log(err);
+        setMsg("There was an error adding this weight, please try again.");
       }
     }
   };
 
+  /**
+   * Deletes a weight from the database
+   */
   const deleteWeight = async (e) => {
     const weight_id = Number(e.target.id);
-    console.log(weight_id);
     try {
-      const response = await axios.delete("https://api-fittr.onrender.com/weight", {
-        data: { weight_id: weight_id },
-      });
-      console.log([weights.filter((weight) => weight._id == weight_id)]);
+      const response = await axios.delete(
+        "https://api-fittr.onrender.com/weight",
+        {
+          data: { weight_id: weight_id },
+        }
+      );
       setWeights([...weights.filter((weight) => weight._id != weight_id)]);
       setMsg("");
     } catch (err) {
@@ -79,12 +90,18 @@ const Home = ({ user }) => {
     }
   };
 
+  /**
+   * Deletes all weights from the database
+   */
   const deleteAllWeights = async () => {
     const user_id = user.id;
     try {
-      const response = await axios.delete("https://api-fittr.onrender.com/weight/all", {
-        data: { user_id: user_id },
-      });
+      const response = await axios.delete(
+        "https://api-fittr.onrender.com/weight/all",
+        {
+          data: { user_id: user_id },
+        }
+      );
       setWeights([]);
       setWeight(150);
       setMsg("");
@@ -93,11 +110,17 @@ const Home = ({ user }) => {
     }
   };
 
+  /**
+   * Updates a weight in the database
+   */
   const updateWeight = async (e, weight) => {
     try {
-      const response = await axios.patch("https://api-fittr.onrender.com/weight", {
-        ...weight,
-      });
+      const response = await axios.patch(
+        "https://api-fittr.onrender.com/weight",
+        {
+          ...weight,
+        }
+      );
 
       // Also a short cut with terrible time complexity
       setWeights(
