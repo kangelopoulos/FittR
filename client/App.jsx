@@ -33,7 +33,10 @@ const App = () => {
         ></Route>
         <Route
           path="/register"
-          element={<Register setUser={setUser} hasSession={hasSession} />}
+          element={<Register setUser={setUser} 
+          setHasSession={setHasSession}
+          />
+        }
         ></Route>
       </Routes>
     </div>
