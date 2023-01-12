@@ -15,11 +15,11 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
    * Authorization - once the app loads, it checks for a valid jwt
    */
    useEffect(() => {
-    window.axios.defaults.withCredentials = true;
+    axios.defaults.withCredentials = true;
     console.log('here');
     const checkSession = async () => {
       console.log('in function');
-      const response = await axios.post("https://ksatest.dev/auth/cookie");
+      const response = await axios.post("https://api-fittr.onrender.com/auth/cookie", {});
       console.log(response);
       if (response.status === 200 && response.data) {
         setUser(response.data);
