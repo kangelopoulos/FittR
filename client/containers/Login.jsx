@@ -77,7 +77,7 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
         <input
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          type="text"
+          type="password"
           name="password"
           id="password"
           value={password}
