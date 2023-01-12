@@ -1,7 +1,7 @@
 @import "./variable.scss";
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: $text-font;
   color: $black;
   margin: 0;
 }
@@ -136,10 +136,15 @@ main {
 .welcome {
   font-size: 28px;
   margin-bottom: 5px;
+  padding-bottom: 0px;
   color: $blue;
 }
 
 td, th {
   color: $blue;
   padding: 5px;
+}
+
+h1, h2 {
+  font-family: $header-font;
 }
