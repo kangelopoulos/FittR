@@ -5,10 +5,11 @@ import axios from "axios";
 const Nav = ({ hasSession, setHasSession, setUser }) => {
   const handleLogout = async () => {
     setUser({});
-    setHasSession(false);
-    const response = axios.delete("https://api-fittr.onrender.com/auth/cookie", {
+    const response = await axios.delete("https://api-fittr.onrender.com/auth/cookie", {
       withCredentials: true,
     });
+    console.log(response);
+    setHasSession(false);
   };
 
   return (
