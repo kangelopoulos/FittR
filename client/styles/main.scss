@@ -75,3 +75,71 @@ nav {
   flex-direction: column;
   align-items: center;
 }
+
+button {
+  border-radius: 5px;
+  padding: 2px;  
+  border: none;
+  font-size: 16px;
+  outline: 1px solid gray;
+  margin-top: 5px;
+}
+
+.warning { 
+  background-color: rgb(198, 90, 90);
+  outline: 1px solid rgb(103, 33, 33);
+  border: none;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.col{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#chart{
+  min-width: 700px;
+  max-width: 900px;
+}
+
+.add{
+  .row {
+    input{
+      margin: 5px;
+    }
+    label{
+      padding-left: 10px;
+      padding-right: 5px;
+    }
+  }
+}
+.add-button{
+  margin: 8px;
+}
+
+main {
+  margin-bottom: 15px;
+}
+
+.error-msg {
+  color: red;
+}
+
+.welcome {
+  font-size: 28px;
+  margin-bottom: 5px;
+  color: $blue;
+}
+
+td, th {
+  color: $blue;
+  padding: 5px;
+}
