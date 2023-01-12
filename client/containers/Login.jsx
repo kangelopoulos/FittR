@@ -14,13 +14,13 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
   /**
    * Authorization - once the app loads, it checks for a valid jwt
    */
-   useEffect(() => {
+  useEffect(() => {
     axios.defaults.withCredentials = true;
-    console.log('here');
     const checkSession = async () => {
-      console.log('in function');
-      const response = await axios.post("https://api-fittr.onrender.com/auth/cookie", {});
-      console.log(response);
+      const response = await axios.post(
+        "https://api-fittr.onrender.com/auth/cookie",
+        {}
+      );
       if (response.status === 200 && response.data) {
         setUser(response.data);
         setHasSession(true);
@@ -31,16 +31,18 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
 
   // Handle login attempt
   const handleLogin = async (e) => {
-    console.log(email, password);
     e.preventDefault();
     if (!email || !password) {
       setMsg("Email and password required.");
     } else {
       try {
-        const response = await axios.post("https://api-fittr.onrender.com/auth/login", {
-          email: email,
-          password: password,
-        });
+        const response = await axios.post(
+          "https://api-fittr.onrender.com/auth/login",
+          {
+            email: email,
+            password: password,
+          }
+        );
         const user = response.data;
         setUser(user);
         setHasSession(true);

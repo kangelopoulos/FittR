@@ -3,6 +3,9 @@ import React, { useState } from "react";
 const Weight = ({ weight, i, deleteWeight, updateWeight }) => {
   const [updating, setUpdating] = useState(false);
 
+  /**
+   * Handles a weight update by grabbing the necessary information and calling updateWeight
+   */
   const handleUpdate = (e) => {
     const weight = {};
     weight.weight_id = e.target.id.split("_")[0];
