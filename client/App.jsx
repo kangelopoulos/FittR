@@ -20,7 +20,7 @@ const App = () => {
         setUser={setUser}
       />
       <Routes>
-        <Route path="/home" element={<Home user={user} />}></Route>
+        <Route path="/home" element={<Home user={user} />} />
         <Route
           path="/"
           element={
@@ -30,10 +30,13 @@ const App = () => {
               setHasSession={setHasSession}
             />
           }
-        ></Route>
+        />
         <Route
           path="/register"
-          element={<Register setUser={setUser} hasSession={hasSession} />}
+          element={<Register setUser={setUser} 
+          setHasSession={setHasSession}
+        />
+        }
         ></Route>
       </Routes>
     </div>

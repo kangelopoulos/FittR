@@ -3,7 +3,7 @@ import { useState } from "react";
 import Message from "../components/Message.jsx";
 import axios from "axios";
 import { useNavigate } from "react-router";
-const Register = ({ setUser }) => {
+const Register = ({ setUser, setHasSession }) => {
   // Hooks for form
   const [email, setEmail] = useState("");
   const [displayName, setDisplayName] = useState("");
@@ -36,6 +36,7 @@ const Register = ({ setUser }) => {
           }
         );
         if (response.status === 200) {
+          setHasSession(true);
           setUser(response.data);
           navigate("/home");
         }
