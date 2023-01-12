@@ -15,12 +15,11 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
    * Authorization - once the app loads, it checks for a valid jwt
    */
    useEffect(() => {
+    axios.defaults.withCredentials = true;
     console.log('here');
     const checkSession = async () => {
       console.log('in function');
-      const response = await axios.post("https://ksatest.dev/auth/cookie", {}, {
-        withCredentials: true,
-      });
+      const response = await axios.post("https://ksatest.dev/auth/cookie");
       console.log(response);
       if (response.status === 200 && response.data) {
         setUser(response.data);
