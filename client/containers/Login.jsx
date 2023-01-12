@@ -17,13 +17,17 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
   useEffect(() => {
     axios.defaults.withCredentials = true;
     const checkSession = async () => {
-      const response = await axios.post(
-        "https://api-fittr.onrender.com/auth/cookie",
-        {}
-      );
-      if (response.status === 200 && response.data) {
-        setUser(response.data);
-        setHasSession(true);
+      try {
+        const response = await axios.post(
+          "https://api-fittr.onrender.com/auth/cookie",
+          {}
+        );
+        if (response.status === 200 && response.data) {
+          setUser(response.data);
+          setHasSession(true);
+        }
+      } catch (err) {
+        
       }
     };
     checkSession();
