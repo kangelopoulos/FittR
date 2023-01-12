@@ -27,7 +27,7 @@ const Login = ({ user, setUser, hasSession, setHasSession }) => {
           setHasSession(true);
         }
       } catch (err) {
-        
+        setMsg("");
       }
     };
     checkSession();

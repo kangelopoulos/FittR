@@ -51,7 +51,6 @@ const Home = ({ user }) => {
             user_id: user.id,
           }
         );
-
         // This is a short cut with terrible time complexity - in another iteration I would edit this
         setWeights(
           [
@@ -151,38 +150,40 @@ const Home = ({ user }) => {
   };
 
   return (
-    <div id="Home">
-      <h1>Welcome, {user.displayName}</h1>
+    <div className="col">
+      <h1 className="welcome">Welcome, {user.displayName}</h1>
       <Message message={msg} />
-      <form className="row">
-        <label htmlFor="date">Date:</label>
-        <input
-          name="date"
-          id="date"
-          type="date"
-          onChange={(e) => setDate(new Date(e.target.value))}
-        />
-        <label htmlFor="weight">Weight:</label>
-        <input
-          onChange={(e) => setWeight(e.target.value)}
-          value={weight}
-          name="weight"
-          id="weight"
-          type="number"
-          min="10"
-          max="1500"
-        />
-        <button onClick={addWeight} type="submit">
+      <form className="add col">
+        <div className="row">
+          <label htmlFor="date">Date:</label>
+          <input
+            name="date"
+            id="date"
+            type="date"
+            onChange={(e) => setDate(new Date(e.target.value))}
+          />
+          <label htmlFor="weight">Weight:</label>
+          <input
+            onChange={(e) => setWeight(e.target.value)}
+            value={weight}
+            name="weight"
+            id="weight"
+            type="number"
+            min="10"
+            max="1500"
+          />
+        </div>
+        <button className="add-button" onClick={addWeight} type="submit">
           Add Weight
         </button>
       </form>
       {isChart ? (
-        <div className="row">
+        <div className="chart-container col">
           <Chart weights={weights} />
           <button onClick={(e) => setIsChart(false)}>See Table</button>
         </div>
       ) : (
-        <div className="row">
+        <div className="col">
           <Table
             deleteWeight={deleteWeight}
             updateWeight={updateWeight}
@@ -191,9 +192,11 @@ const Home = ({ user }) => {
           <button onClick={(e) => setIsChart(true)}>See Graph</button>
         </div>
       )}
-      <button onClick={deleteAllWeights} className="warning">
-        Delete All Weight Data
-      </button>
+      <div className="row">
+        <button onClick={deleteAllWeights} className="warning">
+          Delete All Weight Data
+        </button>
+      </div>
     </div>
   );
 };
