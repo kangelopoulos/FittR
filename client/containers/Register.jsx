@@ -36,8 +36,8 @@ const Register = ({ setUser, setHasSession }) => {
           }
         );
         if (response.status === 200) {
-          setUser(response.data);
           setHasSession(true);
+          setUser(response.data);
           navigate("/home");
         }
         setMsg("");
